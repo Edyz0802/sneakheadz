@@ -6,22 +6,22 @@ if (isset($_REQUEST['nome']) and isset($_REQUEST['cognome']) and isset($_REQUEST
   $cognome = $_REQUEST['cognome'];
   $email = $_REQUEST['email'];
   $password = $_REQUEST['password'];
-  $query = "SELECT * FROM SneakHeadz WHERE email='".$email."'";
-  $result = mysqli_query($con, $query);
+  $query = "SELECT * FROM utenti WHERE email='".$email."'";
+  $result = mysqli_query($conn, $query);
   if($result->num_rows==0){
 
-    $sql="INSERT INTO SneakHeadz (nome,cognome,email,password) VALUES ('$nome','$cognome','$email','$password')";
+    $sql="INSERT INTO utenti (nome,cognome,email,password) VALUES ('$nome','$cognome','$email','$password')";
     echo $sql;
-    if(mysqli_query($con,$sql)) {
+    if(mysqli_query($conn,$sql)) {
       echo "<p>Utente registrato</p>";
 
-      $con->close();
+      $conn->close();
     }
   }else {
     echo "utente gia presente";
   }
 
-  header("location: index.php");
+  header("location: login.php");
 
 }
 ?>

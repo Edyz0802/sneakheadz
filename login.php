@@ -28,6 +28,12 @@
           <li class="nav-item">
             <a class="nav-link" href="registrazione.php">REGISTRAZIONE</a>
           </li>
+          <li class="nav-item">
+            <a class="nav-link" href="store.php">STORE</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" href="logout_Serv.php">LOGOUT</a>
+          </li>
         </ul>
       </div>
     </div>

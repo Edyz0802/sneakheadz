@@ -28,6 +28,12 @@
             <li class="nav-item">
               <a class="nav-link" href="registrazione.php">REGISTRAZIONE</a>
             </li>
+            <li class="nav-item">
+            <a class="nav-link" href="store.php">STORE</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" href="logout_Serv.php">LOGOUT</a>
+          </li>
           </ul>
         </div>
       </div>
@@ -57,7 +63,7 @@
       </div>
 
       <br>
-      <button type="submit" class="btn btn-primary">Registra</button>
+      <button type="submit" class="btn btn-primary">Registrati</button>
     </form>
   </main>
   <?php
