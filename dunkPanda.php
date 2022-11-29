@@ -2,6 +2,9 @@
 <html lang="en">
 <head>
   <?php require 'db_connect.php';
+  
+  if(isset($_SESSION['email'])){
+
   ?>
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
@@ -57,7 +60,7 @@ echo($_SESSION['email']);
       </div>
       <div class="carousel-inner">
         <div class="carousel-item active">
-          <img src="./immagini/jordanOneTravis.jpg" class="d-block w-100" alt="First slide" height="400" width="1000">
+          <img src="./immagini/panda.jpg" class="d-block w-100" alt="First slide" height="400" width="1000">
         </div>
         <div class="carousel-item">
           <img src="./immagini/jordanOneFragment.jpg" class="d-block w-100" alt="Second slide" height="500">
@@ -81,6 +84,9 @@ echo($_SESSION['email']);
 
   <?php
   require 'footer.php';
+  }else{
+    header("Location:login.php");
+  }
   ?>
 </body>
 
