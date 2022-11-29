@@ -44,52 +44,65 @@
   <?php
     echo($_SESSION['email']);
   ?>
-
+  <form method="post" action="dunkPanda.php">
   <table class="table">
   <thead>
     <tr>
+      <th scope="col">N</th>
       <th scope="col">Marca</th>
       <th scope="col">Modello</th>
       <th scope="col">Foto</th>
       <th scope="col">Prezzo</th>
+      <th scope="col">Visualizza</th>
+
+
 
     </tr>
   </thead>
   <tbody>
-    <tr>
-      <td> Nike </td>
-      <td> Dunk panda </td>
-      <td> <img src="./immagini/panda.jpg" class="foto" ></td>
-      <td>150$</td>
-      <td>
-        
-        <form method="post" action="dunkPanda.php">
 
-        <button type="submit" class="btn">VISUALIZZA</button>
+  <?php
 
-        </form>
+    $query="SELECT idProdotto, marca, modello, prezzo, img FROM prodotti ";
+    $result = mysqli_query($conn,$query);
+    $nTab = 0;
 
-      </td>
+    while($array=$result->fetch_assoc()){
+
+      $marca = $array['marca'];
+      $modello = $array['modello'];
+      $prezzo = $array['prezzo'];
+      $img = $array['img'];
+      $nTab = $nTab+1;
+
+      echo "<tr>";
+
+      echo "<th scope=\"row\">".$nTab."</th>";
+      echo "<td>" .$marca. " </td>" ;
+      echo "<td>" .$modello. " </td>" ;
+      ?>
+      <td> <img src="<?php echo $img;?>" class="foto" > </td>
+      <?php
+      echo "<td>" .$prezzo. " </td>" ;
+       
+   
+      echo "<td>" ."<a href=\"dunkPanda.php?id=".$array['idProdotto']."\">VISUALIZZA</a>  </td>" ;
 
 
-    </tr>
-    <tr>
-      <th scope="row">2</th>
-      <td>Jacob</td>
-      <td>Thornton</td>
-      <td>@fat</td>
-    </tr>
-    <tr>
-      <th scope="row">3</th>
-      <td colspan="2">Larry the Bird</td>
-      <td>@twitter</td>
-    </tr>
+
+   echo "</tr>";
+   }
+
+   
+  ?>
+
+   
   </tbody>
-</table>
+  </table>
+  </form>
 
 
-
-
+  <br><br><br><br><br><br><br>
 
 
   <?php

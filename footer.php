@@ -1,6 +1,6 @@
 <footer class="bg-dark text-center text-white fixed-bottom" class="responsive" style="
 
-    position: centre;
+    position: ;
     right: 0;
     left: 0;
     bottom: 0;
