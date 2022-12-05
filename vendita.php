@@ -2,6 +2,9 @@
 <html lang="en">
 <head>
   <?php require 'db_connect.php';
+  
+  if(isset($_SESSION['email'])){
+
   ?>
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
@@ -41,72 +44,33 @@
     </div>
   </nav>
 
-  <?php
-    echo($_SESSION['email']);
-  ?>
-  <form method="post" action="dunkPanda.php">
-  <table class="table">
-  <thead>
-    <tr>
-      <th scope="col">N</th>
-      <th scope="col">Marca</th>
-      <th scope="col">Modello</th>
-      <th scope="col">Foto</th>
-      <th scope="col">Prezzo</th>
-      <th scope="col">Visualizza</th>
 
+<?php
+echo($_SESSION['email']);
+?>
 
+<?php
 
-    </tr>
-  </thead>
-  <tbody>
+$modello = $_REQUEST['modello'];
+$query ="SELECT * FROM prodotti WHERE modello='".$modello."' ";
+$result = mysqli_query($conn,$query);
+$img = $result['img'];
 
-  <?php
-
-    $query="SELECT idProdotto, marca, modello, prezzo, img FROM prodotti ";
-    $result = mysqli_query($conn,$query);
-    $nTab = 0;
-
-    while($array=$result->fetch_assoc()){
-
-      $marca = $array['marca'];
-      $modello = $array['modello'];
-      $prezzo = $array['prezzo'];
-      $img = $array['img'];
-      $nTab = $nTab+1;
-
-      echo "<tr>";
-
-      echo "<th scope=\"row\">".$nTab."</th>";
-      echo "<td>" .$marca. " </td>" ;
-      echo "<td>" .$modello. " </td>" ;
-      ?>
+?>
       <td> <img src="<?php echo $img;?>" class="foto" > </td>
       <?php
-      echo "<td>" .$prezzo. " </td>" ;
-       
-   
-      echo "<td>" ."<a href=\"vendita.php?id=".$modello."\">VISUALIZZA</a>  </td>" ;
 
 
 
-   echo "</tr>";
-   }
-
-   
-  ?>
-
-   
-  </tbody>
-  </table>
-  </form>
+?>
 
 
-  <br><br><br><br><br><br><br>
-
-
+  
   <?php
   require 'footer.php';
+  }else{
+    header("Location:login.php");
+  }
   ?>
 </body>
 
