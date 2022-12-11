@@ -1,17 +1,14 @@
 <footer class="bg-dark text-center text-white fixed-bottom" class="responsive" style="
 
-    position: ;
-    right: 0;
-    left: 0;
-    bottom: 0;
-    margin-top: 5vh;
-
+  position: absolute;
+  bottom: 0;
+  
 
     ">
   <div class="container p-4">
 
     <section>
-        <h5 class="text-uppercase">EMAIL</h5>
+        <h5 class="text-uppercase">E-MAIL</h5>
 
             <ul class="list-unstyled mb-0">
                 <li>
@@ -22,3 +19,19 @@
 
       </div> 
 </footer>
+
+<!-- 
+footer {
+	position: static;
+	bottom: 0;
+	width: 100%;
+	padding-top: 1cm;
+	padding-bottom: 1cm;
+	color: #ffffff;
+	background-color: #7611a5;
+	font-size: 1.3em;
+	font-family: Consolas;
+	text-align: center;
+	margin: 0;
+}
+-->

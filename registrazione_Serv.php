@@ -18,7 +18,7 @@ if (isset($_REQUEST['nome']) and isset($_REQUEST['cognome']) and isset($_REQUEST
       $conn->close();
     }
   }else {
-    echo "utente gia presente";
+    header("location: store.php");
   }
 
   header("location: login.php");

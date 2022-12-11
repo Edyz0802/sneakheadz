@@ -6,12 +6,14 @@ if(isset($_REQUEST['email'] ) && isset($_REQUEST['password'] )  ){
   $password=$_REQUEST['password'];
   $query ="SELECT * FROM utenti WHERE email='".$email."'  and  password='".$password."' ";
   $result = mysqli_query($conn,$query);
+  
   while($array=$result->fetch_assoc()){
     $_SESSION['email']=$email;
     
-    header("Location:index.php");
+    header("Location:store.php");
 
   }
-
+  header("Location:store.php");
+  
 }
 ?>

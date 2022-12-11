@@ -8,39 +8,50 @@
 
     <title>SneakHeadz</title>
   </head>
-  <body>
+
+<body style="background-image: url('immagini/s4.jpg');
+  background-repeat: no-repeat;
+	background-size: cover;
+	margin: 0;">
+
     <header class="site-header">
 
-    <nav class="navbar navbar-expand-lg navbar-light bg-light">
+  <nav class="navbar navbar-expand-lg navbar-light bg-light">
     <div class="container-fluid">
       <a class="navbar-brand" href="#">SneakHeadz</a>
-      <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+      <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav" 
+      aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+
         <span class="navbar-toggler-icon"></span>
       </button>
       <div class="collapse navbar-collapse" id="navbarNav">
         <ul class="navbar-nav">
+
           <li class="nav-item">
-            <a class="nav-link active" aria-current="page" href="index.php">HOME</a>
-          </li>
-          <li class="nav-item">
-            <a class="nav-link" href="login.php">LOGIN</a>
+            <a class="nav-link" href="store.php">STORE</a>
           </li>
           <li class="nav-item">
             <a class="nav-link" href="registrazione.php">REGISTRAZIONE</a>
           </li>
           <li class="nav-item">
-            <a class="nav-link" href="store.php">STORE</a>
+            <a class="nav-link" href="login.php">LOGIN</a>
           </li>
           <li class="nav-item">
             <a class="nav-link" href="logout_Serv.php">LOGOUT</a>
           </li>
+
         </ul>
       </div>
     </div>
   </nav>
+
 </header>
 
-<main class="container">
+<br><br><br><br><br><br>
+<h3 style="text-align: center;">Inserisci i tuoi dati nel form sottostante per effettuare il login</h3>
+
+<main class="container" style="width: 40%;">
+
   <br><br>
   <form method="post" action="loginServ.php">
     <div class="mb-3">
@@ -50,8 +61,8 @@
     <div class="mb-3">
       <label for="password" class="form-label">Password</label>
       <input type="password" class="form-control" id="password" name="password" placeholder="Password">
-    </div>
-    <button type="submit" class="btn btn-primary">Accedi</button>
+    </div><br>
+    <button type="submit" class="btn btn-primary" >Accedi</button>
   </form>
 
 
