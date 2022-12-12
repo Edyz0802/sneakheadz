@@ -4,8 +4,6 @@
 <head>
   <?php require 'db_connect.php';
   
-  if(isset($_SESSION['email'])){
-
   ?>
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
@@ -37,6 +35,15 @@
             <a class="nav-link" href="store.php">STORE</a>
           </li>
           <li class="nav-item">
+            <?php 
+             if(isset($_SESSION['email'])){
+
+            ?>
+            <a class="nav-link" href="carrello.php">CARRELLO</a>
+          </li>
+          <?php } ?> 
+
+          <li class="nav-item">
             <a class="nav-link" href="registrazione.php">REGISTRAZIONE</a>
           </li>
           <li class="nav-item">
@@ -51,10 +58,10 @@
     </div>
   </nav>
 
+
   <div id="corpo">
 
 <?php
-//echo($_SESSION['email']);
 
 $modello=$_GET['modello'];
 
@@ -69,10 +76,24 @@ $modello=$_GET['modello'];
       $marca=$array['marca'];
       $prezzo=$array['prezzo'];
       $quantita=1;
+
       //ordine associato ad email
+      if(isset($_SESSION['email'])) {
+
       $idOrdine=$_SESSION['email'];
 
-//echo "<br/>";
+      $query1="SELECT * FROM utenti WHERE email='".$_SESSION['email']."'";
+      $result1 = mysqli_query($conn,$query1);
+    
+      while($array1=$result1->fetch_assoc()) {
+        
+        echo("<h3><center><br>Ciao, ".$array1['nome']."<br><br></center></h3>");
+      }
+
+      }else{
+        echo "<h4><strong>Per aggiungere questo prodotto al carrello<br>Devi aver effettuato il login<br><br></strong></h4>";
+      }
+
 echo "<h4><strong>Stai Guardando : </strong></h4>";
 echo "<br/>";
 echo "<h4><strong>MODELLO : </strong>".$array['modello']."</h4>";
@@ -93,6 +114,11 @@ echo "<form method=\"POST\" action=\"vendita_Serv.php?modello=".$modello."\" >";
 <h4><label for="quantity">Quantita (1-99):</label>
 <input type="number" id="quantita" name="quantita" min="1" max="99" required></h4><br>
 
+<h4><label for="taglia">Taglia:</label>
+<input type="range" id="taglia" name="taglia" value="35" min="35" max="45" oninput="this.nextElementSibling.value = this.value" required>
+<output>35</output>
+<br><br><br>
+
 <?php
  echo "<input type=\"submit\" name=\"insert\" value=\"AGGIUNGI AL CARRELLO\" /><br/>";
  echo "</form>";
@@ -107,18 +133,12 @@ echo "<form method=\"POST\" action=\"vendita_Serv.php?modello=".$modello."\" >";
     die('Query non riuscita' .mysqli_error($conn));
   }
 
-
-  
-  }
-
-  else{header("Location:login.php");}
-
   ?>
 
 </div>
 
 </body>
 
-<?php require 'footer.php'; ?>
+<?php require 'footer2.php'; ?>
 
 </html>

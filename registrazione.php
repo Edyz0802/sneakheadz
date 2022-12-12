@@ -32,6 +32,15 @@
             <a class="nav-link" href="store.php">STORE</a>
           </li>
           <li class="nav-item">
+            <?php 
+             if(isset($_SESSION['email'])){
+
+            ?>
+            <a class="nav-link" href="carrello.php">CARRELLO</a>
+          </li>
+          <?php } ?> 
+
+          <li class="nav-item">
             <a class="nav-link" href="registrazione.php">REGISTRAZIONE</a>
           </li>
           <li class="nav-item">
@@ -45,6 +54,7 @@
       </div>
     </div>
   </nav>
+
 
   </header>
 

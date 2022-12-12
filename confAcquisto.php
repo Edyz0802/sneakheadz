@@ -66,10 +66,6 @@ echo("<br><br><br><br><br><br><br>");
     echo("<h1><center><br>Benvenuto Utente Sconosciuto<br></center></h1>");
   }
    
-  
-
-  
-
   echo("<br><br><br><br><br>");
 
   require 'footer.php';

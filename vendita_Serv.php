@@ -2,9 +2,12 @@
 
 require 'db_connect.php';
 
-if(isset($_REQUEST['quantita'] ) && isset($_REQUEST['insert'] )  ){
+if(isset($_SESSION['email'])){
+
+if(isset($_REQUEST['quantita'] ) && isset($_REQUEST['taglia'] ) && isset($_REQUEST['insert'] )  ){
 
   $quantita =$_REQUEST['quantita'];
+  $taglia =$_REQUEST['taglia'];
   $modello=$_GET['modello'];
 
 //query sel utente
@@ -26,7 +29,9 @@ while($array1=$result1->fetch_assoc()) {
   $email = $_SESSION['email'];
 
   //idCarrello AUTO INCREMENT
-  $query3 = "INSERT INTO carrello (idUtente, idProdotto, email, prezzoTot, quantita) VALUES ('$idUtente','$idProdotto','$email','$prezzoTot','$quantita')";
+  $query3 = "INSERT INTO carrello (idUtente, idProdotto, email, prezzoTot, quantita, taglia) 
+  VALUES ('$idUtente','$idProdotto','$email','$prezzoTot','$quantita','$taglia')";
+
   $result3 = mysqli_query($conn,$query3);
 
     header("Location:carrello.php");
@@ -39,4 +44,9 @@ while($array1=$result1->fetch_assoc()) {
   }
 
 }
+
+} else { 
+  header("Location:login.php"); 
+}
+
 ?>

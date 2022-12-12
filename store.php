@@ -34,6 +34,15 @@
             <a class="nav-link" href="store.php">STORE</a>
           </li>
           <li class="nav-item">
+            <?php 
+             if(isset($_SESSION['email'])){
+
+            ?>
+            <a class="nav-link" href="carrello.php">CARRELLO</a>
+          </li>
+          <?php } ?> 
+
+          <li class="nav-item">
             <a class="nav-link" href="registrazione.php">REGISTRAZIONE</a>
           </li>
           <li class="nav-item">
@@ -89,8 +98,6 @@
 
     while($array=$result->fetch_assoc()){
 
-      // echo("prova"); QUA ENTRA
-
       $marca = $array['marca'];
       $modello = $array['modello'];
       $prezzo = $array['prezzo'];
@@ -111,20 +118,15 @@
     echo "<td> <br><br><br><br><br><br> <input type=\"submit\" name=\"aggCarrello\" value=\"VISUALIZZA\" /></td>";
     echo "</form>";
 
-
    echo "</tr>";
     }
-
    
   ?>
-
    
   </tbody>
   </table>
 
-
   <br><br><br><br><br><br><br>
-
 
   <?php
   require 'footer2.php';

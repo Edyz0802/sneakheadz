@@ -20,18 +20,3 @@
       </div> 
 </footer>
 
-<!-- 
-footer {
-	position: static;
-	bottom: 0;
-	width: 100%;
-	padding-top: 1cm;
-	padding-bottom: 1cm;
-	color: #ffffff;
-	background-color: #7611a5;
-	font-size: 1.3em;
-	font-family: Consolas;
-	text-align: center;
-	margin: 0;
-}
--->

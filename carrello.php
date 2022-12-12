@@ -23,7 +23,7 @@
 	background-size: cover;
 	margin: 0;">
 
-  <nav class="navbar navbar-expand-lg navbar-light bg-light">
+<nav class="navbar navbar-expand-lg navbar-light bg-light">
     <div class="container-fluid">
       <a class="navbar-brand" href="#">SneakHeadz</a>
       <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav" 
@@ -38,6 +38,15 @@
             <a class="nav-link" href="store.php">STORE</a>
           </li>
           <li class="nav-item">
+            <?php 
+             if(isset($_SESSION['email'])){
+
+            ?>
+            <a class="nav-link" href="carrello.php">CARRELLO</a>
+          </li>
+          <?php } ?> 
+
+          <li class="nav-item">
             <a class="nav-link" href="registrazione.php">REGISTRAZIONE</a>
           </li>
           <li class="nav-item">
@@ -51,6 +60,7 @@
       </div>
     </div>
   </nav>
+
 
   <div id="corpo">
 
@@ -81,7 +91,6 @@ echo "<h5><strong>Prezzo : " .$prezzoTot. " €</strong></h5><br>";
 
 echo "<br/>";
 
-}
 
 $query3="SELECT SUM(prezzoTot) FROM carrello WHERE email='".$_SESSION['email']."'";
 $result3 = mysqli_query($conn,$query3);
@@ -92,7 +101,6 @@ $finalPrice = implode(", ", $row);
 echo "<h4><strong>Prezzo Totale : ".$finalPrice." €</strong></h4><br>";
 echo "<br>";
 ?>
-<!-- <div id="formVendita"> -->
 <?php
 echo "<form method=\"POST\" action=\"carrello_Serv.php?finalPrice=".$finalPrice."\" >";
 ?>
@@ -102,21 +110,19 @@ echo "<form method=\"POST\" action=\"carrello_Serv.php?finalPrice=".$finalPrice.
 <input type="month" id="meseScadenza" name="meseScadenza" required><br><br>
 <label for="titolareCarta">Nome e Cognome del titolare :</label>
 <input type="text" id="titolare" name="titolare" placeholder="Nome e Cognome" required></h5>
-<!-- metti codice sconto x prof mandando $codSconto a carrello_Serv come $finalPrice
-     se metti qualcosa tipo pupa&moretto fai nel serv update del prezzo a 0.01 -->
+
 <br><br>
 <?php
 echo "<td> <input type=\"submit\" name=\"vendi\" value=\"CONFERMA L'ORDINE\" /></td>";
 echo "</form>";
 ?>
-<!--  </div> -->
 <?php
-} 
+} }
 
 if($result2->num_rows==0){
 
 echo "<br/><br/>";
-echo "<strong>Siamo Spiacenti, il tuo carrello è vuoto :( </strong>";
+echo "<h3><strong>Il tuo carrello è vuoto :( </strong></h3>";
 echo "<br/><br/>";
 }
 }
@@ -127,6 +133,6 @@ echo "<br/><br/>";
 
 </body>
 
-<?php echo "<br><br><br><br><br><br><br>"; require 'footer2.php'; ?>
+<?php echo "<br><br><br><br><br><br><br><br><br><br>"; require 'footer2.php'; ?>
 
 </html>
